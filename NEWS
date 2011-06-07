@@ -1,0 +1,28 @@
+Version 1.0.0
+Fixed the indexing of the demo latticeDensity
+Modified the function makeTmatrix so that the function
+  runs even if some nodes have no links to the rest of
+  the lattice.
+homerange now prints out the area of the homerange along with
+  the proportion of the region that is inside the homerange.
+--------------------
+Version 1.0.4  (June 6, 2011)
+Many new items in this version.  Non-parametric regression has been
+implemented.  
+Many function names have been shortened (somewhat).  
+New functions include addQuantVar to add a spatial response variable to
+a non-parametric regression, crossvalNparReg to crossvalidate the
+non-parametric regression, createNparReg to perform the smoothing and
+predict.NparRegOut and plot.NparRegOut to produce predictions and plots
+for non-parametric regression.
+The package passes R CMD check, the demo runs properly, editLattice works
+and the help files are in fairly good shape.
+*This was the first version submitted and accepted at the CRAN repository.
+-------------------
+Version 1.0.5  (June 7, 2011)
+Two examples in help files were improved (makeTmatrix and Tkp).
+Almost all examples were sped up so the checking process will run faster,
+usually by decreasing the number of steps checked under crossvalidation and
+by using a coarser grid.
+The components of the output of crossvalDensity were named ucv and k.
+-------------------
