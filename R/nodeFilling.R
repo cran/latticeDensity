@@ -12,7 +12,6 @@ nodeFilling <- function(poly, node.spacing,hole.list = NULL){
      flush.console()
    }
    node.spacing <- as.numeric(node.spacing)
-   plot.new()
    # 
    width.EW <- max(poly[,1]) - min(poly[,1])
    width.NS <- max(poly[,2]) - min(poly[,2])

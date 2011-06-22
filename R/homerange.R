@@ -1,5 +1,5 @@
 homerange <- 
-function(densityOut, percent = 0.95){
+function(densityOut, percent = 0.95, output=FALSE){
 #
       if(class(densityOut)!="densityOut"){
        stop("Should be the output from the function createDesity")}
@@ -20,5 +20,8 @@ function(densityOut, percent = 0.95){
   prop.area <- proportion*area
   cat("Proportion of region in homerange = ", proportion, "\n")
   cat("Area of homerange = ", prop.area, "\n")
+  if(output){
+    return(cbind(nodes,ind))
+    }
 }
 

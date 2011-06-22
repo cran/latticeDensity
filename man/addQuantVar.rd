@@ -56,14 +56,6 @@ Ronald P. Barry <rpbarry@alaska.edu>
 \examples{
 data(nparExample)
 attach(nparExample)
-plot.new()
-#  Simulate a response variable
-index1 = (grid2[,2]<0.8)|(grid2[,1]>0.6)
-Z = rep(NA,length(grid2[,1]))
-n1 = sum(index1)
-n2 = sum(!index1)
-Z[index1] = 3*grid2[index1,1] + 4 + rnorm(n1,0,sd=0.4)
-Z[!index1] = -2*grid2[!index1,1] + 4 + rnorm(n2,0,sd=0.4)
 #
 plot(rbind(polygon2,polygon2[1,]),type="l")
 points(grid2,pch=19,cex=0.5,xlim=c(-0.1,1))

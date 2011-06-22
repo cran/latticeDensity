@@ -9,20 +9,34 @@ A vector of predicted values is produced corresponding to each location
 in the data.
 }
 \usage{
-\method{predict}{NparRegOut}(object,\dots)
+\method{predict}{NparRegOut}(object,new.pred=NULL,\dots)
 }
 \arguments{
   \item{object}{
 an object of type \code{NparRegOut} returned by \code{createNparReg}.
 }
+  \item{new.pred}{
+if new.pred is left out, predictions are made at the locations of
+the point pattern.  Otherwise, new.pred is a 2-column matrix of
+locations where you wish to obtain predictions
+  }
   \item{\dots}{
 aditionally arguments affecting the predictions, of which there
 are none at this time.
 }
 }
-%\details{
-%%  ~~ If necessary, more details than the description above ~~
-%}
+\details{
+If new.pred is not used as an arguments, this function returns a vector
+of predictions at each node closest to an observations of the original
+point process.  If you wish to make predictions at arbitrary locations,
+let new.pred be a 2-column matrix of those locations.  Note that all
+predictions are actually at the nearest node to the desired locations.
+NOTE:  Like all functions in this package, new locations are relocated to the
+nearest node in the region, even if they are outside the boundary.  Thus you
+should ensure that your locations of interest are inside the boundary and
+that the density of nodes is high enough that the nearest node is close
+enough to the location you queried.
+}
 
 %\references{
 %Ronald P. Barry, Julie McIntyre.  Estimation animal densities and home

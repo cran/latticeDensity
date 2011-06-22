@@ -9,7 +9,7 @@ The homerange contains the smallest number of nodes with total density greater
 than the percent.  This function is illustrated in Barry and McIntyre (2011).
 }
 \usage{
-homerange(densityOut, percent = 0.95)
+homerange(densityOut, percent = 0.95,output=FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -18,6 +18,10 @@ a \code{densityOut} object, produced by \code{createDensity}.
 }
   \item{percent}{
 the sum of the probabilities of all nodes in the homerange exceeds this value.
+}
+  \item{output}{
+if TRUE, the function returns a matrix containing, for each node, a
+location (first two columns) and whether the node is in the homerange.
 }
 }
 %\details{

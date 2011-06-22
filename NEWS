@@ -26,3 +26,11 @@ usually by decreasing the number of steps checked under crossvalidation and
 by using a coarser grid.
 The components of the output of crossvalDensity were named ucv and k.
 -------------------
+Version 1.0.6  (June 22, 2011)
+The predict.NparRegOut function was improved to make predictions at new
+locations.  Homerange now has the option of output of node locations with
+a column that identifies the homerange.  Finally, a new function 
+deletedResid produces a column of residuals and deleted residuals for each
+observed response.
+This version was submitted to CRAN.
+-------------------

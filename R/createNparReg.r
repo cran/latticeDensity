@@ -1,5 +1,5 @@
 createNparReg <-
-function(formLatticeOutput,Z,PointPattern=NULL,M=0.5,k, ...)
+function(formLatticeOutput,Z,PointPattern=NULL,M=0.5,k,...)
 {
 #
 #  This function only uses sparse matrices
@@ -25,8 +25,9 @@ function(formLatticeOutput,Z,PointPattern=NULL,M=0.5,k, ...)
   zk <- Tkp(T,k=k,p=Z0)
   N <- length(NS.locs)*length(EW.locs)
   long <- rep(NA,N)
+  zk[is.nan(zk)] <- mean(Z)
+  pk[is.nan(pk)] <- 1
   long[as.numeric(rownames(nodes))] <- zk/pk
-  long[is.nan(long)] <-  mean(Z)
   NparRegOut = list(EW.locs = formLatticeOutput$EW.locs,
                     NS.locs = formLatticeOutput$NS.locs,
                     nodes = formLatticeOutput$nodes,

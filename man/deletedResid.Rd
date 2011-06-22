@@ -1,15 +1,14 @@
-\name{crossvalNparReg}
-\alias{crossvalNparReg}
+\name{deletedResid}
+\alias{deletedResid}
 \title{
-Crossvalidation for non-parametric regression.
+Deleted residuls for non-parametric regression.
 }
 \description{
-Performs least-squares crossvalidation for the lattice-based
-non-parametric regression estimator.
+Computes deleted residuals for the lattice-based non-parametric regression
+estimator.
 }
 \usage{
-crossvalNparReg(formLatticeOutput,Z,PointPattern,M=0.5,num.steps = 200,plots=
-TRUE)
+deletedResid(formLatticeOutput,Z,PointPattern,M=0.5,k)
 }
 \arguments{
   \item{formLatticeOutput}{
@@ -26,25 +25,15 @@ can be coerced to a matrix by the function as.matrix.
   \item{M}{
 probability that the random walk stays in the same location in a single step.
 }
-  \item{num.steps}{
-the maximum number of steps used in the crossvalidation.
-}
-  \item{plots}{
-if FALSE, suppresses plots of the nodes and data locations, where
-each data location is colored along with the closes node to which
-it is assigned.
+  \item{k}{
+number of steps in the random walk.
 }
 }
 %\details{
 %%  ~~ If necessary, more details than the description above ~~
 %}
 \value{
-a list consiting of
-  \item{SumSq}{A vector of crossvalidated sums of squares for k=1 to num.steps.
-  }
-  \item{k}{The number of steps that minimizes the crossvalidated sum of 
-  squares.
-  }
+a vector of deleted residuals.
 }
 \references{
 Ronald P. Barry, Julie McIntyre.  Estimation animal densities and home
@@ -85,9 +74,9 @@ plot(nodeFillingOutput)
 formLatticeOutput = formLattice(nodeFillingOutput)
 plot(formLatticeOutput)
 hold = crossvalNparReg(formLatticeOutput,Z,
-         PointPattern=grid2,M=0.5,num.steps = 75,plots=FALSE)
-NparRegOut = createNparReg(formLatticeOutput,Z,PointPattern=grid2,k=hold$k)
-plot(NparRegOut)
+         PointPattern=grid2,M=0.5,num.steps = 75)
+deletedResid(formLatticeOutput,Z,
+         PointPattern=grid2,M=0.5,k=hold$k)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
