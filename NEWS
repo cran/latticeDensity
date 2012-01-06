@@ -34,3 +34,9 @@ deletedResid produces a column of residuals and deleted residuals for each
 observed response.
 This version was submitted to CRAN.
 -------------------
+Version 1.0.7  (Jan. 6, 2011)
+When an array with unnamed columns was used as a boundary in nodeFilling,
+a warning was generated due to the columns not being labeled x and y.  This
+even caused a warning to occur in the demo(density), though it did not
+affect results.  I fixed the error.
+This version was submitted to CRAN.

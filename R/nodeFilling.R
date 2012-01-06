@@ -21,6 +21,7 @@ nodeFilling <- function(poly, node.spacing,hole.list = NULL){
    EW.locs <- seq(min(poly[,1]),max(poly[,1]),by=node.spacing)
    NS.locs <- seq(min(poly[,2]),max(poly[,2]),by=node.spacing) 
    bound.array <- expand.grid(EW.locs,NS.locs)
+   names(bound.array) <- c("x","y")
    nodes <- bound.array[inout(pts=bound.array,poly=poly),]
    nodes <- as.points(as.matrix(nodes))
    #
