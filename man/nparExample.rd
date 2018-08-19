@@ -17,6 +17,12 @@ nparExample
 \format{
 Two matrices and a vector.  One matrix is 35x2, the other is 59x2.
 }
+
+\references{
+Julie McIntyre, Ronald P. Barry (2018)  A Lattice-Based 
+Smoother for Regions with Irregular Boundaries and Holes.  
+Journal of Computational and Graphical Statistics.  In Press.
+}
 %
 %
 \keyword{datasets}

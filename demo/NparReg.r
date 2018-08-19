@@ -39,13 +39,13 @@ points(grid2,pch=19,cex=0.5,xlim=c(-0.1,1))
 text(grid2,labels=round(Z,1),pos=4,cex=0.5)
 
 #  The nodeFilingOutput function fills the region with nodes that are spaced
-#  according (unsurprisingly) the argument node.spacing.  You want the nodes
+#  according (unsurprisingly) the argument node_spacing.  You want the nodes
 #  sufficiently close together so that measured responses don't shift too much
 #  when moved to the nearest node (the red and green dots show the response
 #  and the node it is shifted to) and all the major features of the polygon
 #  are filled with nodes.  The only upper limit is computing time and memory.
 
-nodeFillingOutput = nodeFilling(poly=polygon2,node.spacing=0.025)
+nodeFillingOutput = nodeFilling(poly=polygon2, node_spacing=0.025)
 plot(nodeFillingOutput)
 
 #  formLatticeOutput connects the nodes into a lattice upon which the 
@@ -66,13 +66,13 @@ plot(formLatticeOutput)
 #  of the smoothing parameter k that seems to give good plots.  The
 #  response variable is in Z, the locations of the responses are in 
 #  PointPattern, M is another smoothing parameter (usually left at 0.5),
-#  num.steps is the maximum number of steps examined.  If the plot of
+#  max_steps is the maximum number of steps examined.  If the plot of
 #  crossvalidated sums of squares vs steps doesn not show a minimum, you
-#  might have to increase num.steps.
+#  might have to increase max_steps.
 
 devAskNewPage(ask = FALSE) 
 hold = crossvalNparReg(formLatticeOutput,Z,
-         PointPattern=grid2,M=0.5,num.steps = 200)
+         PointPattern=grid2,M=0.5,max_steps = 200)
 devAskNewPage(ask = TRUE)
          
 #  Finally, createNparReg forms kernels using the lattice-based approach

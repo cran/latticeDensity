@@ -40,3 +40,26 @@ a warning was generated due to the columns not being labeled x and y.  This
 even caused a warning to occur in the demo(density), though it did not
 affect results.  I fixed the error.
 This version was submitted to CRAN.
+-------------------
+Version 1.1.0 (Aug. 16, 2018)
+The latticeDensity package was extensively reworked, though most changes
+were internal.
+1)  Automated all documentation using roxygen
+2)  Added vignette
+3)  Improved DESCRIPTION file, removed 'requires' from files
+4)  Changed naming convention of functions and objects, especially
+to remove yyy.yyy names.
+5)  added deletedResid function for deleted residuals
+6)  removed most side-effects of functions
+7)  used ptinpoly package to improve selection of nodes inside polygons,
+    and the RANN package to find nearest
+    neighbors.
+8)  improved speed of nodeFilling.
+9)  added an estimator of the sum of squared error (based on deleted
+    residuals)
+10)  improved look of plot.formLatticeOutput
+11)  Added a set of automated tests
+12)  added a function to compute Nardaraya-Watson estimated variance
+     maps (varianceMap)
+This version was submitted to CRAN
+---------------------
