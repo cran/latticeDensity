@@ -42,7 +42,7 @@
 #' @import utils
 #' @import graphics
 #' @import stats
-#' @import spdep
+#' @importFrom spdep card
 #' @import grDevices
 #' @export
 editLattice <-

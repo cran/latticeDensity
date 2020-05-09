@@ -9,6 +9,12 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+```{r setup, message = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(latticeDensity)
+library(sp)
+```
+
 This vignette will have three main parts.  In the first part we will step through two examples of kernel density estimation.  In the second part we will step through two examples of non-parametric regression.  Finally, in the third part we will show an example that includes UTM conversion and creation of polygons from maps (using packages outside latticeDensity).
 
 
@@ -32,8 +38,6 @@ of equally-spaced nodes.  You should select node_spacing to be small, bound only
 closely approximates a diffusion.
 
 ```{r part1, fig.height=4,fig_width=4}
-library(latticeDensity)
-library(sp)
 plot.new()
 data(polygon1)
 head(polygon1)
@@ -84,7 +88,7 @@ The minimum uvc (Unbiased CrossValidation criterion of Sain, Baggerly and Scott 
 ```{r part4,fig.width=4,fig.height=4, message=FALSE}
 densityOut <- createDensity(formLatticeOutput,
   PointPattern=Pointdata, k=out$k,intensity=FALSE, sparse = TRUE)
-#plot(densityOut)
+plot(densityOut)
 ```
 
 For the ecologically-inclined, the function **homerange** computes the area of the 95% confidence region.
@@ -191,7 +195,7 @@ Shapefiles (and boundaries in general) are often in latitude and longitude.  How
 
 ```{r part11, message=FALSE}
 library(rgdal)
-xy <- cbind(c(118, 118.3, 118.7, 119), c(10, 25, 48, 49, 50))
+xy <- cbind(c(118, 118.3, 118.7, 119), c(10, 25, 48, 49))
 now_in_UTM <- project(xy, proj = "+proj=utm +zone=51 ellps=WGS84")
 now_in_UTM
 ```

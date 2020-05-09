@@ -16,7 +16,6 @@
 #' @param node_spacing The distance between grid locations.
 #' @param hole_list Optional list of holes to be removed from 
 #' the region
-#' @param \dots Arguments for the plot produced as a side effect.
 #' @return An object of type nodeFillingOutput is produced.
 #' \itemize{
 #'   \item EW_locs EW coordinates for the contour plot.

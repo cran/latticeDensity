@@ -57,7 +57,7 @@
 #' @import utils
 #' @import graphics
 #' @import stats
-#' @import spdep
+#' @importFrom spdep dnearneigh
 #' @export
 formLattice <-
 function(nodeFillingOutput){

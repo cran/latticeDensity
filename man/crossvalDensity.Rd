@@ -4,8 +4,13 @@
 \alias{crossvalDensity}
 \title{UBC crossvalidation for the lattice-based density estimator.}
 \usage{
-crossvalDensity(formLatticeOutput, PointPattern, M = 0.5,
-  max_steps = 200, sparse = TRUE)
+crossvalDensity(
+  formLatticeOutput,
+  PointPattern,
+  M = 0.5,
+  max_steps = 200,
+  sparse = TRUE
+)
 }
 \arguments{
 \item{formLatticeOutput}{An object from formLattice or editLattice.}

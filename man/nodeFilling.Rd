@@ -14,8 +14,6 @@ bounding polygon.}
 
 \item{hole_list}{Optional list of holes to be removed from 
 the region}
-
-\item{\dots}{Arguments for the plot produced as a side effect.}
 }
 \value{
 An object of type nodeFillingOutput is produced.

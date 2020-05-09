@@ -4,8 +4,7 @@
 \alias{crossvalNparReg}
 \title{Crossvalidation for non-parametric regression.}
 \usage{
-crossvalNparReg(formLatticeOutput, Z, PointPattern, M = 0.5,
-  max_steps = 200)
+crossvalNparReg(formLatticeOutput, Z, PointPattern, M = 0.5, max_steps = 200)
 }
 \arguments{
 \item{formLatticeOutput}{An object from formLattice or editLattice.}

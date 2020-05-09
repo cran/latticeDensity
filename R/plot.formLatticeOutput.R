@@ -25,7 +25,7 @@
 #' @import utils
 #' @import graphics
 #' @import stats
-#' @import spdep
+#' @importFrom spdep card
 #' @export
 #' @method plot formLatticeOutput
 plot.formLatticeOutput <-

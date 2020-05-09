@@ -47,7 +47,9 @@
 #' @import utils
 #' @import graphics
 #' @import stats
-#' @import spdep
+#' @importFrom spdep nb2listw
+#' @importFrom spdep nb2mat
+#' @importFrom spatialreg as.spam.listw
 #' @export
 makeTmatrix <- 
 function(formLatticeOutput,M = 0.5, sparse = TRUE){
@@ -59,7 +61,7 @@ function(formLatticeOutput,M = 0.5, sparse = TRUE){
   #
   if(sparse){
       #  sparse matrix computations
-    neigh_matrix <- spdep::as.spam.listw(spdep::nb2listw(
+    neigh_matrix <- spatialreg::as.spam.listw(spdep::nb2listw(
                             latt,style="B",zero.policy=TRUE))
     rowTotals <- apply(neigh_matrix,MARGIN=1,sum)
     diags <- 1 - M*(rowTotals/max(rowTotals))

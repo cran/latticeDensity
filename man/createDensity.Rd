@@ -4,8 +4,14 @@
 \alias{createDensity}
 \title{Generates a density using random walks on a lattice.}
 \usage{
-createDensity(formLatticeOutput, PointPattern = NULL, M = 0.5, k,
-  intensity = FALSE, sparse = TRUE)
+createDensity(
+  formLatticeOutput,
+  PointPattern = NULL,
+  M = 0.5,
+  k,
+  intensity = FALSE,
+  sparse = TRUE
+)
 }
 \arguments{
 \item{formLatticeOutput}{An object from formLattice or editLattice.}
