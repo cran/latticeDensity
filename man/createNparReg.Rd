@@ -17,6 +17,21 @@ createNparReg(formLatticeOutput, Z, PointPattern = NULL, M = 0.5, k)
 
 \item{k}{Number of steps.}
 }
+\value{
+A list of class NparRegOut with elements:
+\itemize{
+ \item EW_locs Vector of EW locations.
+ \item NS_locs Vector of NS locations.
+ \item nodes Matrix of node locations in lattice.
+ \item boundaryPoly Matrix showing bounding polynomial.
+ \item hole_list List of polygons, holes in region.
+ \item PointPattern Matrix of the locations of the data.
+ \item which_nodes Matrix locations of nodes closest to data.
+ \item NparRegNum Vector of numerators of the regression estimates
+ \item NparRegDenom Vector of denominators of the regression estimates
+ \item sigma2 Numeric, estimate of the noise variance.
+ }
+}
 \description{
 This function takes the lattice from formLattice (which fills the 
 region of interest) along with the list of responses and their locations,
@@ -70,5 +85,6 @@ Business Media, Inc. N.Y. 2006.
 
 #' @references Julie McIntyre, Ronald P. Barry (2018)  A Lattice-Based 
 Smoother for Regions with Irregular Boundaries and Holes.  
-Journal of Computational and Graphical Statistics.  In Press.
+Journal of Computational and Graphical Statistics.  
+<doi:10.1080/10618600.2017.1375935>
 }

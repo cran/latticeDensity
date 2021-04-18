@@ -12,6 +12,11 @@
 #' @param output if TRUE, the function returns a matrix 
 #' containing, for each node, a location (first two columns) 
 #' and whether the node is in the homerange.
+#' @return A list of two vectors used for mapping:
+#' \itemize{
+#' \item nodes The coordinates of all nodes in the model
+#' \item ind Indicator functions, is the location in the homerange?
+#' }
 #' 
 #' @author Ronald P. Barry
 #' @references 
@@ -20,6 +25,7 @@
 #' with irregular boundaries and holes: A lattice-based 
 #' alternative to the kernel density estimator. 
 #' Ecological Modelling 222 (2011) 1666-1672.
+#' <doi:10.1016/j.ecolmodel.2011.02.016>
 #' 
 #' @examples 
 #'     plot.new()

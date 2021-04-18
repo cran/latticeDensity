@@ -66,7 +66,7 @@ This version was submitted to CRAN
 Version 1.1.1 (July 9, 2018)
 The function as.spam.listw was moved from the package spdep to
 the package spatialreg.  In order to load both packages,
-I used inputFrom to avoid namespace clashes.
+I used importFrom to avoid namespace clashes.
 Version submitted to CRAN
 ---------------------
 Version 1.1.2 (May 7, 2020)
@@ -76,4 +76,7 @@ Changed to LazyData: true
 Version 1.1.6 (May 8, 2020)
 Removed the variable ".Random.seed" from a data set.  Was causing a CRAN build NOTE.
 Removed the variable ".Random.seed" from internal.R file.
+-------------------
+Version 1.2.2 (April 14, 2021)
+Upgraded the package to deal with the division of spatstat into multiple packages.
 -------------------

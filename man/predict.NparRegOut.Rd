@@ -17,6 +17,9 @@ of locations where you wish to obtain predictions.}
 \item{\dots}{Aditionally arguments affecting the predictions, of which 
 there are none at this time.}
 }
+\value{
+Vector of predicted values.
+}
 \description{
 Takes as input a NparRegOut object from 
 the function createNparReg. A vector of 
@@ -71,7 +74,8 @@ predict(NparRegOut)
 \references{
 Julie McIntyre, Ronald P. Barry (2018)  A Lattice-Based 
 Smoother for Regions with Irregular Boundaries and Holes.  
-Journal of Computational and Graphical Statistics.  In Press.
+Journal of Computational and Graphical Statistics.  
+<doi:10.1080/10618600.2017.1375935>
 }
 \author{
 Ronald P. Barry

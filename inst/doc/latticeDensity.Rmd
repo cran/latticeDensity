@@ -1,24 +1,30 @@
 ---
-title: "Density Estimation and Nonparametric Regression"
-author: "Ronald P. Barry"
-date: "2018-08-14"
+title: "Nonparametric Regression and Density Estimation"
+author: "Ron Barry"
+date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Density Estimation and Nonparametric Regression}
+  %\VignetteIndexEntry{Nonparametric Regression and Density Estimation}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r setup, message = FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
 library(latticeDensity)
 library(sp)
+library(spatstat.geom)
+library(spatstat)
+library(splancs)
 ```
 
 This vignette will have three main parts.  In the first part we will step through two examples of kernel density estimation.  In the second part we will step through two examples of non-parametric regression.  Finally, in the third part we will show an example that includes UTM conversion and creation of polygons from maps (using packages outside latticeDensity).
 
 
-#Kernel Density Estimation:
+# Kernel Density Estimation:
 
 **latticeDensity** is designed to produce density maps
 accounting for the effects of boundaries and holes.
@@ -31,7 +37,7 @@ observations.  Note that an observation outside the boundary
 polygon is moved automatically to the nearest location 
 inside the polygon. 
 
-###Step One:
+### Step One:
 
 The function nodeFilling takes a polygon representing, in this case, a lake with a causeway and no islands ("holes"") and fills the region with a grid
 of equally-spaced nodes.  You should select node_spacing to be small, bound only by the speed of processing the data.  With small node_spacing, this analysis 
@@ -45,7 +51,7 @@ nodeFillingOutput <- nodeFilling(poly=polygon1, node_spacing=0.02)
 plot(nodeFillingOutput)
 ```
 
-##Step Two:
+## Step Two:
 
 Now for the fun part.  The function **formLattice** will 'connect the dots' to create a neighbor structure on the nodes.  Neighbors are defined to be locations to the N, NE, E, SE, S, SW, W, and NW of each node (as long as there IS a node in that direction).  You can examine a plot of the resulting object to see if all regions that should be connected are and that nodes, for instance, across a causeway are not connected.
 
@@ -54,11 +60,11 @@ formLatticeOutput <- formLattice(nodeFillingOutput)
 plot(formLatticeOutput)
 ```
 
-##Optional Step:
+## Optional Step:
 
 If you see links that you would like to remove (for instance, a link crosses a boundary), or see links that you would like to add, use the function **editLattice**.
 
-##Step Three:
+## Step Three:
 
 Next, we need to add locations for the point process (e.g. animal relocations) to the lattice object.  After the data has been added, we can select a value \eqn{k} that represents the number of steps the random walk takes around each observation.  These random walks essentially produce a kernel around the observation.  There is another argument that we won't use at this time, \eqn{M}.  This is the maximum probability that the random walk moves in any single step and is set, by default, to 0.5.  For instance, if a node has eight neighbors (the largest possible) and M = 0.5, the flow rate to each neighbor is 0.5/8 = 0.0625.  Decreasing this value will decrease the width of a kernel for a fixed step size, so generally it should be decreased when the optimal step size turns out to be so small that large parts of the region are outside any kernel.
 
@@ -67,8 +73,7 @@ Internally, this package uses the function **addObservations**, but this is call
 Just for this example I'll use the function **csr** from the package **splancs** to simulate a completely random point process with all observations to the east of the causeway removed.  Then I'll feed that into **crossvalDensity**:
 
 ```{r part3, message=FALSE}
-library(splancs, quietly=TRUE)
-Pointdata <- csr(polygon1,150)
+Pointdata <- splancs::csr(polygon1,150)
 colnames(Pointdata) <- c("x","y")
 Pointdata <- Pointdata[Pointdata[,1]<0.5,]
 full_polygon <- rbind(polygon1,polygon1[1,])
@@ -76,7 +81,6 @@ colnames(full_polygon) <- c("x","y")
 plot(full_polygon,type="l",plt=c(0,1,0,1))
 title("Simulated point process")
 points(Pointdata,pch=19)
-
 out <- crossvalDensity(formLatticeOutput,PointPattern=Pointdata, 
   M=0.5,max_steps = 150)
 plot(1:150,out$ucv,type="l")
@@ -97,7 +101,7 @@ For the ecologically-inclined, the function **homerange** computes the area of t
 homerange(densityOut, percent=0.95)
 ```
 
-###A Simple Kernel Example
+### A Simple Kernel Example
 
 To illustrate the concept of kernels based on random walks, I'll just compute the kernel for a simple network of nodes:
 
@@ -146,7 +150,7 @@ plot(out)
 text(out$nodes, labels=round(out$probs,3),cex=0.6)
 ```
 
-#Nonparametric Regression:
+# Nonparametric Regression:
 
 The density obtained from the **latticeDensity** smoother starting from a single observation is a bona fide probability distribution.  These can be used as kernels for non-parametric surface estimation, using the Nadaraya-Watson estimator, which basically gets a prediction at each location by taking a weighted average of all observations, weighted by the value of the kernel started from the location of each observation.  For a full disussion, see McIntyre and Barry (A Lattice-Based Smoother for Regions with Irregular Boundaries and Holes, Journal of Computational and Graphical Statistics, 2018, Vol. 27, pp. 360 - 367).  All the user has to do is supply a polygonal boundary, observed values and their locations.
 
@@ -175,7 +179,7 @@ plot(NparRegOut)
 names(NparRegOut)
 ```
 
-###Error map
+### Error map
 
 The output of **crossvalNparReg** also includes an estiamate of the underlying error $\hat{\sigma}^2 = \sum_{i=1}^n{(y_i-\hat{y}_{i(i)})^2/n}$, which is the mean of the squared deleted residuals at all observations.  In this case it equals `r NparRegOut$sigma2`.
 
@@ -186,9 +190,9 @@ varianceMapOut <- varianceMap(formLatticeOutput,Z,PointPattern=grid2,k=20)
 plot(varianceMapOut)
 ```
 
-#Special cases:
+# Special cases:
 
-###Conversion to UTM
+### Conversion to UTM
 
 Shapefiles (and boundaries in general) are often in latitude and longitude.  However, because the distance corresponding to one degree of latitude is usually not the same as the distance corresponding to one degree of longitude, the diffusion modeled by latticeDensity isn't isotropic.  To solve this problem, you can convert to UTM (Universal Transverse Mercator) coordinates.  One R package that can do this conversion is **rgdal**:
 
@@ -200,7 +204,7 @@ now_in_UTM <- project(xy, proj = "+proj=utm +zone=51 ellps=WGS84")
 now_in_UTM
 ```
 
-###Holes
+### Holes
 
 Islands inside of lakes and other 'holes' are easily accomodated in latticeDensity.  Each polygonal hold is stored in a different object, then the corresponding nodes are cut out of the irregular region in the nodeFilling function.
 
@@ -216,7 +220,7 @@ plot(lattice_output)
 
 There are some links that are crossing the islands, but the function editLattice can be used to remove these.
 
-##  NOTE:  Warnings
+## NOTE:  Warnings
 Occasionally the message 
 
 `validspamobject()` is deprecated. Use `validate_spam()` directly
@@ -228,3 +232,5 @@ Also, expect that some functions (**crossvalidation** or **deletedResid**, for i
 Finally, whenever a location is outside the support of all kernels, it is given the estimated value equal to the mean of the data.  Usually it is better to make the kernels cover most of the map.  Usually k is reasonably large compared to the diameter of the grid, and you are fine, otherwise you might consider decreasing the movement rate by decreasing M somewhat before crossvalidating.  This will tend to make the kernels have larger support.
 
 In a similar vein, crossvalidation often seems to undersmooth data when the observations are in clusters, a common problem with spatial crossvalidation in any context.  If you think the optimum number of steps (k) under crossvalidation is too low, just use a larger value of k and examine the deleted sums of squared errors to see that they don't increase too much.
+
+

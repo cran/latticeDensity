@@ -8,7 +8,14 @@
 #' @param hole_poly A numerical matrix of vertices of the hole polygon. 
 #' @param nodeFillingOutput An object of type nodeFillingOutput, returned 
 #' by nodeFilling or removeHole.
-#' @return An object of type nodeFillingOutput.
+#' @return An object of type nodeFillingOutput, with values:
+#' \itemize{
+#'   \item EW_locs EW coordinates for the contour plot.
+#'   \item NS_locs NS coordinates for the contour plot.
+#'   \item nodes Matrix of node locations.
+#'   \item poly Matrix of vertices of boundary polygon.
+#'   \item node_spacing Vertical and horizontal node spacing.
+#'   \item hole_list List of polygons representing holes in region.}
 #' @author Ronald P. Barry
 #' 
 #' @import utils

@@ -4,18 +4,21 @@
 \alias{Tkp}
 \title{Compute the vector T^k*p}
 \usage{
-Tkp(T, k, p)
+Tkp(TranMat, k, p)
 }
 \arguments{
-\item{T}{Transition matrix returned by makeTmatrix.}
+\item{TranMat}{Transition matrix returned by makeTmatrix.}
 
 \item{k}{The number of steps in the diffusion.}
 
 \item{p}{A numerical vector of length equal to the 
 number of nodes, of initial probabilities.}
 }
+\value{
+A vector of probabilities.
+}
 \description{
-T is the transition matrix of the 
+TranMat is the transition matrix of the 
 random walk on the lattice. By multiplying 
 by the probability density p at time t, 
 you get the probability density at time t+1. 
@@ -32,8 +35,8 @@ formLatticeOutput <- formLattice(nodeFillingOutput)
 Pointdata <- splancs::csr(polygon1,75)
 Pointdata <- Pointdata[Pointdata[,1]<0.5, ]
 init_prob <- addObservations(formLatticeOutput, Pointdata)
-T <- makeTmatrix(formLatticeOutput, M = 0.5, sparse=TRUE)
-p10 <- Tkp(T, k=10, p=init_prob$init_prob)
+TranMat <- makeTmatrix(formLatticeOutput, M = 0.5, sparse=TRUE)
+p10 <- Tkp(TranMat, k=10, p=init_prob$init_prob)
 head(cbind(init_prob$init_prob, p10))
 
 }

@@ -13,11 +13,17 @@ editLattice.}
 \item{Z}{A vector of response variable values.}
 
 \item{locations}{A two-column matrix or data frame of data locations.
+\itemize{
+\item init_quantvar Vector of initial quantitative variables
+\item init_prob Vector of initial probability density
+\item which_nodes What nodes are closest to each data location
+}
 
 #' @references Ronald P. Barry, Julie McIntyre.  Estimating animal densities and home
 range in regions with irregular boundaries and holes:  A lattice-based
 alternative to the kernel density estimator.
-Ecological Modelling 222 (2011)  1666-1672.}
+Ecological Modelling 222 (2011)  1666-1672.  
+<doi:10.1080/10618600.2017.1375935>}
 }
 \description{
 This function takes a \code{formLatticeOutput} object, which encodes a region

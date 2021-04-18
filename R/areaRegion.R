@@ -9,6 +9,7 @@
 #' or if the holes intersect the polygon.
 #' @param formLatticeOutput An object returned by formLattice or
 #' editLattice.
+#' @return Numeric The area of the bounded region.
 #' @examples 
 #' data(areaRegionExample)
 #' attach(areaRegionExample)

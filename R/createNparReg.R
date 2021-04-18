@@ -24,13 +24,27 @@
 #' 
 #' #' @references Julie McIntyre, Ronald P. Barry (2018)  A Lattice-Based 
 #' Smoother for Regions with Irregular Boundaries and Holes.  
-#' Journal of Computational and Graphical Statistics.  In Press.
+#' Journal of Computational and Graphical Statistics.  
+#' <doi:10.1080/10618600.2017.1375935>
 #' 
 #' @param formLatticeOutput An object returned by formLattice or editLattice.
 #' @param Z Vector of responses to be smoothed.
 #' @param PointPattern A 2 column matrix or data frame of locations.
 #' @param M The maximum probability that the random walk will move.
 #' @param k Number of steps.
+#' @return A list of class NparRegOut with elements:
+#' \itemize{
+#'  \item EW_locs Vector of EW locations.
+#'  \item NS_locs Vector of NS locations.
+#'  \item nodes Matrix of node locations in lattice.
+#'  \item boundaryPoly Matrix showing bounding polynomial.
+#'  \item hole_list List of polygons, holes in region.
+#'  \item PointPattern Matrix of the locations of the data.
+#'  \item which_nodes Matrix locations of nodes closest to data.
+#'  \item NparRegNum Vector of numerators of the regression estimates
+#'  \item NparRegDenom Vector of denominators of the regression estimates
+#'  \item sigma2 Numeric, estimate of the noise variance.
+#'  }
 #'   
 #' @examples
 #' data(nparExample)

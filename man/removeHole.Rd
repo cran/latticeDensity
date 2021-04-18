@@ -13,7 +13,14 @@ removeHole(hole_poly, nodeFillingOutput)
 by nodeFilling or removeHole.}
 }
 \value{
-An object of type nodeFillingOutput.
+An object of type nodeFillingOutput, with values:
+\itemize{
+  \item EW_locs EW coordinates for the contour plot.
+  \item NS_locs NS coordinates for the contour plot.
+  \item nodes Matrix of node locations.
+  \item poly Matrix of vertices of boundary polygon.
+  \item node_spacing Vertical and horizontal node spacing.
+  \item hole_list List of polygons representing holes in region.}
 }
 \description{
 If a hole in a region is specified as a polygon, the function 

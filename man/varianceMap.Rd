@@ -73,6 +73,7 @@ animal densities and home range in regions
 with irregular boundaries and holes: A 
 lattice-based alternative to the kernel 
 density estimator. Ecological Modelling 222 (2011) 1666-1672.
+<doi:10.1016/j.ecolmodel.2011.02.016>
 
 Julie McIntyre, Ronald P. Barry (2018)  A Lattice-Based 
 Smoother for Regions with Irregular Boundaries and Holes.  

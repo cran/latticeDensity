@@ -44,6 +44,7 @@
 #' boundaries and holes: A lattice-based alternative to 
 #' the kernel density estimator. Ecological Modelling 
 #' 222 (2011) 1666-1672.
+#' <doi:10.1080/10618600.2017.1375935>
 #' @examples 
 #' plot.new()
 #' data(polygon1)

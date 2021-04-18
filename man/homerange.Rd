@@ -16,6 +16,13 @@ nodes in the homerange exceeds this value.}
 containing, for each node, a location (first two columns) 
 and whether the node is in the homerange.}
 }
+\value{
+A list of two vectors used for mapping:
+\itemize{
+\item nodes The coordinates of all nodes in the model
+\item ind Indicator functions, is the location in the homerange?
+}
+}
 \description{
 homerange produces a map of the homerange, 
 for any given percentage. The homerange 
@@ -49,6 +56,7 @@ animal densities and home range in regions
 with irregular boundaries and holes: A lattice-based 
 alternative to the kernel density estimator. 
 Ecological Modelling 222 (2011) 1666-1672.
+<doi:10.1016/j.ecolmodel.2011.02.016>
 }
 \author{
 Ronald P. Barry

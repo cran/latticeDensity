@@ -26,13 +26,15 @@
 #' 
 #' @references Julie McIntyre, Ronald P. Barry (2018)  A Lattice-Based 
 #' Smoother for Regions with Irregular Boundaries and Holes.  
-#' Journal of Computational and Graphical Statistics.  In Press.
+#' Journal of Computational and Graphical Statistics.  
+#' <doi:10.1080/10618600.2017.1375935>
 #' @param object An object of type NparRegOut returned by createNparReg.
 #' @param new_pred if new_pred is left out, predictions are made at the 
 #' locations of the point pattern. Otherwise, new_pred is a 2-column matrix 
 #' of locations where you wish to obtain predictions.
 #' @param \dots Aditionally arguments affecting the predictions, of which 
 #' there are none at this time.
+#' @return Vector of predicted values.
 #' @author Ronald P. Barry
 #' @examples 
 #' data(nparExample)
@@ -62,8 +64,8 @@
 #' 
 #' @import utils
 #' @import graphics
+#' @import spatstat.geom
 #' @import stats
-#' @import spatstat
 #' @import sp
 #' @export
 #' @method predict NparRegOut
@@ -79,9 +81,9 @@ if(is.null(new_pred)){
   }else{
     temp <- sp::bbox(rbind(new_pred,object$nodes))
     bound_vect <- c(temp[1,1],temp[1,2],temp[2,1],temp[2,2])
-    X <- spatstat::as.ppp(new_pred,W = bound_vect)
-    Y <- spatstat::as.ppp(object$nodes,W=bound_vect)
-    closest <- spatstat::nncross(X,Y)$which
+    X <- spatstat.geom::as.ppp(new_pred,W = bound_vect)
+    Y <- spatstat.geom::as.ppp(object$nodes,W=bound_vect)
+    closest <- spatstat.geom::nncross(X,Y)$which
     Pk[Pk==0] <- 1
     Zk[Pk==0] <- mean(Zk)*length(Zk)
     out <- (Zk/Pk)[closest]

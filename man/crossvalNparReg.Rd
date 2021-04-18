@@ -68,7 +68,8 @@ the kernel density estimator. Ecological Modelling
 
 Julie McIntyre, Ronald P. Barry (2018)  A Lattice-Based 
 Smoother for Regions with Irregular Boundaries and Holes.  
-Journal of Computational and Graphical Statistics.  In Press.
+Journal of Computational and Graphical Statistics.  
+<doi:10.1080/10618600.2017.1375935>
 }
 \author{
 Ronald P. Barry

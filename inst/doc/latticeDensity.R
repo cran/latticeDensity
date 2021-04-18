@@ -1,7 +1,13 @@
-## ----setup, message = FALSE---------------------------------------------------
-knitr::opts_chunk$set(echo = TRUE)
+## ----setup, include = FALSE---------------------------------------------------
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
 library(latticeDensity)
 library(sp)
+library(spatstat.geom)
+library(spatstat)
+library(splancs)
 
 ## ----part1, fig.height=4,fig_width=4------------------------------------------
 plot.new()
@@ -15,8 +21,7 @@ formLatticeOutput <- formLattice(nodeFillingOutput)
 plot(formLatticeOutput)
 
 ## ----part3, message=FALSE-----------------------------------------------------
-library(splancs, quietly=TRUE)
-Pointdata <- csr(polygon1,150)
+Pointdata <- splancs::csr(polygon1,150)
 colnames(Pointdata) <- c("x","y")
 Pointdata <- Pointdata[Pointdata[,1]<0.5,]
 full_polygon <- rbind(polygon1,polygon1[1,])
@@ -24,7 +29,6 @@ colnames(full_polygon) <- c("x","y")
 plot(full_polygon,type="l",plt=c(0,1,0,1))
 title("Simulated point process")
 points(Pointdata,pch=19)
-
 out <- crossvalDensity(formLatticeOutput,PointPattern=Pointdata, 
   M=0.5,max_steps = 150)
 plot(1:150,out$ucv,type="l")

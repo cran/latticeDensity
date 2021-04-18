@@ -10,6 +10,9 @@ areaRegion(formLatticeOutput)
 \item{formLatticeOutput}{An object returned by formLattice or
 editLattice.}
 }
+\value{
+Numeric The area of the bounded region.
+}
 \description{
 This function computes the area of a region by first finding
 the area of the bounding polygon, then subtracting the area
