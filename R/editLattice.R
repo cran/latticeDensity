@@ -22,23 +22,21 @@
 #' @author Ronald P. Barry
 #' @seealso formLattice
 #' @examples 
-#' \dontrun{
 #' plot.new()
 #' data(polygon1)
 #' nodeFillingOutput = nodeFilling(poly=polygon1, node_spacing=0.03)
 #' plot(nodeFillingOutput)
 #' formLatticeOutput = formLattice(nodeFillingOutput)
 #' plot(formLatticeOutput)
+#' if(interactive()){
 #' formLatticeOutput = editLattice(formLatticeOutput)
-#' #
-#' #  Paste the code above into R, then do the editing before
-#' #  pasting the code below into R.
+#' }
 #' #
 #' Pointdata = splancs::csr(polygon1,20)
 #' densityOut = createDensity(formLatticeOutput,PointPattern=Pointdata,
 #'                   k=150,intensity=FALSE, sparse = TRUE)
 #' plot(densityOut)
-#' }
+#' 
 #' @import utils
 #' @import graphics
 #' @import stats

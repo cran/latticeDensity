@@ -14,6 +14,9 @@
 #' returned by either nodeFilling or removeHole.
 #' @param \dots Other arguments to be passed to 
 #' functions plot, points, lines.
+#' 
+#' @return No return value, called for side effects
+#' 
 #' @author Ronald P. Barry
 #' @references Ronald P. Barry, Julie McIntyre. 
 #' Estimating animal densities and home range in 
@@ -30,7 +33,7 @@
 #' @method plot nodeFillingOutput
 plot.nodeFillingOutput <-
 function(x,...){
-  if(class(x)!="nodeFillingOutput"){
+  if(!inherits(x,"nodeFillingOutput")){
        stop("Should be the output from the function nodeFilling")
     }
   nodes <- x$nodes

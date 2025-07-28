@@ -2,26 +2,30 @@ Package: latticeDensity
 Type: Package
 Title: Density Estimation and Nonparametric Regression on Irregular
         Regions
-Version: 1.2.6
-Date: 2021-04-14
-Author: Ronald Barry <rpbarry@alaska.edu>
-Maintainer: Ronald Barry <rpbarry@alaska.edu>
+Version: 1.2.7
+Date: 2025-07-17
+Authors@R: person("Ronald", "Barry", 
+           role=c("aut","cre"), 
+           email="rpbarry@alaska.edu")
 Depends: R (>= 3.5.0), spatstat (>= 2.0-0), spatstat.geom
 Imports: splancs, spdep, spam, stats, utils, graphics, grDevices, sp,
-        spatialreg, sf
+        spatialreg
 LazyData: true
-Suggests: knitr, devtools, roxygen2, testthat, rmarkdown, rgdal
+Suggests: knitr, devtools, roxygen2, testthat, rmarkdown
 Encoding: UTF-8
 Description: Functions that compute the
-  lattice-based density estimator of Barry and McIntyre, which
-  accounts for point processes in two-dimensional regions with 
-  irregular boundaries and holes.  The package also implements
-  two-dimensional non-parametric regression for similar regions.
+  lattice-based density and regression estimators for two-dimensional regions
+  with irregular boundaries and holes.  The density estimation technique is 
+  described in Barry and McIntyre (2011) 
+  <doi:10.1016/j.ecolmodel.2011.02.016>,
+  while the non-parametric regression technique is described in McIntyre and
+  Barry (2018)  <doi:10.1080/10618600.2017.1375935>.
 License: GPL-2
-URL: www.r-project.org
-Packaged: 2021-04-18 02:48:41 UTC; ronaldbarry
+Packaged: 2025-07-25 06:46:07 UTC; ronaldbarry
 Repository: CRAN
-Date/Publication: 2021-04-18 16:20:02 UTC
-RoxygenNote: 7.1.1
+Date/Publication: 2025-07-28 18:40:13 UTC
+RoxygenNote: 7.3.2
 VignetteBuilder: knitr
 NeedsCompilation: no
+Author: Ronald Barry [aut, cre]
+Maintainer: Ronald Barry <rpbarry@alaska.edu>

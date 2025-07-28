@@ -13,6 +13,9 @@ returned by either nodeFilling or removeHole.}
 \item{\dots}{Other arguments to be passed to 
 functions plot, points, lines.}
 }
+\value{
+No return value, called for side effects
+}
 \description{
 Plots the boundary, all holes and 
 the locations of all nodes. Should 

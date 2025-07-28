@@ -12,13 +12,15 @@
 #' editLattice.
 #' @param Z A vector of response variable values.
 #' @param locations A two-column matrix or data frame of data locations.
+#' 
+#' @return  addQuantVarOutput object consisting of
 #' \itemize{
-#' \item init_quantvar Vector of initial quantitative variables
-#' \item init_prob Vector of initial probability density
-#' \item which_nodes What nodes are closest to each data location
+#'   \item init_quantvar Vector of initial quantitative variables
+#'   \item init_prob Vector of initial probability density
+#'   \item which_nodes What nodes are closest to each data location
 #' }
 #' 
-#' #' @references Ronald P. Barry, Julie McIntyre.  Estimating animal densities and home
+#' @references Ronald P. Barry, Julie McIntyre.  Estimating animal densities and home
 #' range in regions with irregular boundaries and holes:  A lattice-based
 #' alternative to the kernel density estimator.
 #' Ecological Modelling 222 (2011)  1666-1672.  
@@ -38,7 +40,7 @@ addQuantVar <-
 function(formLatticeOutput, Z, locations){
   #
   #
-  if(class(formLatticeOutput) != "formLatticeOutput"){
+  if(!inherits(formLatticeOutput,"formLatticeOutput")){
        stop("Should be the output from the function formLattice")
     }
   nodes <- formLatticeOutput$nodes

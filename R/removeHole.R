@@ -33,7 +33,7 @@ function(hole_poly, nodeFillingOutput) {
   #  repeated for each hole.
   #
   hole_poly <- as.matrix(hole_poly)
-  if(class(nodeFillingOutput)!="nodeFillingOutput"){
+  if(!inherits(nodeFillingOutput,"nodeFillingOutput")){
     stop("Should be the output from the function nodeFilling")}
   nodes <- nodeFillingOutput$nodes
   nodes <- nodes[!inout(pts = nodes, poly = hole_poly),]

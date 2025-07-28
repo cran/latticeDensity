@@ -190,19 +190,6 @@ varianceMapOut <- varianceMap(formLatticeOutput,Z,PointPattern=grid2,k=20)
 plot(varianceMapOut)
 ```
 
-# Special cases:
-
-### Conversion to UTM
-
-Shapefiles (and boundaries in general) are often in latitude and longitude.  However, because the distance corresponding to one degree of latitude is usually not the same as the distance corresponding to one degree of longitude, the diffusion modeled by latticeDensity isn't isotropic.  To solve this problem, you can convert to UTM (Universal Transverse Mercator) coordinates.  One R package that can do this conversion is **rgdal**:
-
-
-```{r part11, message=FALSE}
-library(rgdal)
-xy <- cbind(c(118, 118.3, 118.7, 119), c(10, 25, 48, 49))
-now_in_UTM <- project(xy, proj = "+proj=utm +zone=51 ellps=WGS84")
-now_in_UTM
-```
 
 ### Holes
 

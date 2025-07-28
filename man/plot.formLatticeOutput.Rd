@@ -13,6 +13,9 @@ by either formLattice or editLattice.}
 \item{\dots}{Other arguments to be passed to functions 
 plot, points, lines.}
 }
+\value{
+No return value, called for side effects
+}
 \description{
 This function plots the boundary, holes, 
 nodes and neighbor lattice for the lattice 

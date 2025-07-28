@@ -6,6 +6,8 @@
 #' @param x An object of type densityOut returned by createDensity.
 #' @param \dots Graphical parameters for the function contour.default.
 #' 
+#' @return No return value, called for side effects
+#' 
 #' @author Ronald P. Barry
 #' @references Ronald P. Barry, Julie McIntyre. Estimating 
 #' animal densities and home range in regions with irregular 
@@ -41,7 +43,7 @@
 plot.densityOut <-
 function(x,...){
 #
-  if(class(x) != "densityOut"){
+  if(!inherits(x,"densityOut")){
     stop("This function only plots objects of type densityOut")
     }
   EW_locs <- as.vector(x$EW_locs)

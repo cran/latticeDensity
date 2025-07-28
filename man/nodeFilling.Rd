@@ -37,6 +37,8 @@ contained in the region are retained. The output,
 a nodeFillingOutput object, contains the boundaries 
 of the region (and holes), the set of nodes, and EW
 and NS coordinates necessary for creating a contour plot.
+Note that there is no check to see that the holes are 
+contained in the region, and that they don't intersect.
 }
 \examples{
 plot.new()

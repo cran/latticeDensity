@@ -12,6 +12,9 @@
 \item{\dots}{Other arguments to be passed to functions plot, 
 points, lines.}
 }
+\value{
+No return value, called for side effects
+}
 \description{
 Takes as input a varianceMapOut object from the 
 function varianceMap. This plotting function 

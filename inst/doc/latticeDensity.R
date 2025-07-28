@@ -98,12 +98,6 @@ names(NparRegOut)
 varianceMapOut <- varianceMap(formLatticeOutput,Z,PointPattern=grid2,k=20)
 plot(varianceMapOut)
 
-## ----part11, message=FALSE----------------------------------------------------
-library(rgdal)
-xy <- cbind(c(118, 118.3, 118.7, 119), c(10, 25, 48, 49))
-now_in_UTM <- project(xy, proj = "+proj=utm +zone=51 ellps=WGS84")
-now_in_UTM
-
 ## ----part12, message=FALSE, fig.width=4, fig.height=4-------------------------
 boundary <- cbind(c(0,0,0.2,1,1),c(0,0.8,1,1,0))
 hole1 <- cbind(c(0.1,0.3,0.4),c(0.2,0.3,0.8))

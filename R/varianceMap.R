@@ -72,7 +72,7 @@ varianceMap <-
     #
     #                                                            
     #
-    if(class(formLatticeOutput)!="formLatticeOutput"){
+    if(!inherits(formLatticeOutput,"formLatticeOutput")){
       stop("Should be the output from the function formLattice")
       }
     if((M==0)|(M==1)){

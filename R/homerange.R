@@ -12,6 +12,7 @@
 #' @param output if TRUE, the function returns a matrix 
 #' containing, for each node, a location (first two columns) 
 #' and whether the node is in the homerange.
+#' @param show if FALSE, suppresses printing the area
 #' @return A list of two vectors used for mapping:
 #' \itemize{
 #' \item nodes The coordinates of all nodes in the model
@@ -51,9 +52,9 @@
 #' @import stats
 #' @export
 homerange <- 
-function(densityOut, percent = 0.95, output=FALSE){
+function(densityOut, percent = 0.95, output=FALSE, show=TRUE){
 #
-      if(class(densityOut)!="densityOut"){
+      if(!inherits(densityOut,"densityOut")){
        stop("Should be the output from the function createDesity")}
   nodes <- densityOut$nodes
   poly <- densityOut$poly
@@ -70,8 +71,10 @@ function(densityOut, percent = 0.95, output=FALSE){
   #
   proportion <- sum(ind)/length(nodes[,1])
   prop_of_area <- proportion*area
-  cat("Proportion of region in homerange = ", proportion, "\n")
-  cat("Area of homerange = ", prop_of_area, "\n")
+  if(show){
+    cat("Proportion of region in homerange = ", proportion, "\n")
+    cat("Area of homerange = ", prop_of_area, "\n")
+  }
   if(output){
     return(cbind(nodes,ind))
     }

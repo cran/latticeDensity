@@ -4,7 +4,7 @@
 \alias{homerange}
 \title{Produces a homerange map.}
 \usage{
-homerange(densityOut, percent = 0.95, output = FALSE)
+homerange(densityOut, percent = 0.95, output = FALSE, show = TRUE)
 }
 \arguments{
 \item{densityOut}{A densityOut object, produced by createDensity.}
@@ -15,6 +15,8 @@ nodes in the homerange exceeds this value.}
 \item{output}{if TRUE, the function returns a matrix 
 containing, for each node, a location (first two columns) 
 and whether the node is in the homerange.}
+
+\item{show}{if FALSE, suppresses printing the area}
 }
 \value{
 A list of two vectors used for mapping:

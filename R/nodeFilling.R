@@ -10,6 +10,8 @@
 #' a nodeFillingOutput object, contains the boundaries 
 #' of the region (and holes), the set of nodes, and EW
 #' and NS coordinates necessary for creating a contour plot.
+#' Note that there is no check to see that the holes are 
+#' contained in the region, and that they don't intersect.
 #' 
 #' @param poly A matrix that contains the vertices of the 
 #' bounding polygon.
@@ -49,9 +51,6 @@ nodeFilling <- function(poly, node_spacing,hole_list = NULL){
      number.holes <- length(hole_list)
      for(k in 1:number.holes){
        hole_list[[k]] <- as.matrix(hole_list[[k]])}
-     print("This function does not check to see if the holes")
-     print("are nonintersecting, or whether they are contained")
-     print("inside the boundary")
    }
    node_spacing <- as.numeric(node_spacing)
    #

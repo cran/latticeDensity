@@ -11,6 +11,9 @@
 #' @param x An object of type NparRegOut returned by createNparReg.
 #' @param \dots Other arguments to be passed to functions plot, 
 #' points, lines.
+#' 
+#' @return No return value, called for side effects
+#' 
 #' @author Ronald P. Barry
 #' @examples 
 #' data(nparExample)
@@ -44,7 +47,7 @@
 plot.NparRegOut <-
 function(x,...){
 #
-  if(class(x) != "NparRegOut"){
+  if(!inherits(x,"NparRegOut")){
     stop("This function only plots objects of type NparRegOut")
     }
   EW_locs <- as.vector(x$EW_locs)

@@ -12,18 +12,15 @@ editLattice.}
 
 \item{Z}{A vector of response variable values.}
 
-\item{locations}{A two-column matrix or data frame of data locations.
-\itemize{
-\item init_quantvar Vector of initial quantitative variables
-\item init_prob Vector of initial probability density
-\item which_nodes What nodes are closest to each data location
+\item{locations}{A two-column matrix or data frame of data locations.}
 }
-
-#' @references Ronald P. Barry, Julie McIntyre.  Estimating animal densities and home
-range in regions with irregular boundaries and holes:  A lattice-based
-alternative to the kernel density estimator.
-Ecological Modelling 222 (2011)  1666-1672.  
-<doi:10.1080/10618600.2017.1375935>}
+\value{
+addQuantVarOutput object consisting of
+\itemize{
+  \item init_quantvar Vector of initial quantitative variables
+  \item init_prob Vector of initial probability density
+  \item which_nodes What nodes are closest to each data location
+}
 }
 \description{
 This function takes a \code{formLatticeOutput} object, which encodes a region
@@ -35,6 +32,12 @@ have a point process and wish to produce a density estimate, you should use
 the function \code{addObservations}.
 }
 \references{
+Ronald P. Barry, Julie McIntyre.  Estimating animal densities and home
+range in regions with irregular boundaries and holes:  A lattice-based
+alternative to the kernel density estimator.
+Ecological Modelling 222 (2011)  1666-1672.  
+<doi:10.1080/10618600.2017.1375935>
+
 Julie McIntyre, Ronald P. Barry (2018)  A Lattice-Based 
 Smoother for Regions with Irregular Boundaries and Holes.  
 Journal of Computational and Graphical Statistics.  In Press.

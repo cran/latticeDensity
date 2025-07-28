@@ -55,7 +55,7 @@ makeTmatrix <-
 function(formLatticeOutput,M = 0.5, sparse = TRUE){
   # 
   M <- as.numeric(M)
-  if(class(formLatticeOutput)!="formLatticeOutput"){
+  if(!inherits(formLatticeOutput,"formLatticeOutput")){
        stop("Should be the output from the function formLattice")}
   latt <- formLatticeOutput$latt
   #

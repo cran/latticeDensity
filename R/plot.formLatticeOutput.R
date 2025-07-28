@@ -13,6 +13,9 @@
 #' by either formLattice or editLattice.
 #' @param \dots Other arguments to be passed to functions 
 #' plot, points, lines.
+#' 
+#' @return No return value, called for side effects
+#' 
 #' @author Ronald P. Barry
 #' @examples 
 #' plot.new()
@@ -35,7 +38,7 @@ function(x,...){
   #  unwanted lattice links, you may edit the lattice using
   #  editFromLatticeOutput
   #
-  if(class(x)!="formLatticeOutput"){
+  if(!inherits(x,"formLatticeOutput")){
        stop("Should be the output from the function formLattice")}
   nodes <- x$nodes
   poly <- x$poly

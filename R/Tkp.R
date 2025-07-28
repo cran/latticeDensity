@@ -41,7 +41,7 @@ Tkp <-
 function(TranMat,k,p){
 #  p should be output from 
   k <- as.numeric(k)
-  if (class(p)=="initProbObject"){
+  if (inherits(p,"initProbObject")){
     p <- as.vector(p$init_prob)
     } else {
     p <- as.vector(p)

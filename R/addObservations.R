@@ -16,16 +16,17 @@
 #' the region.  The function returns a vector equal in length to the number of
 #' nodes that has the initial density for each node.  This vector corresponds to
 #' \eqn{p_0}, the inital probability vector as in Barry and McIntyre (2011).
-#
+#'
 #' @param formLatticeOutput  An object returned by formLattice or
 #' editLattice.
 #' @param observations A matrix or data frame with two columns.
 #'
 #' @return a list with two elements.
-#' \itemize{
-#' \item{init_prob}{Numerical vector with the initial probability distribution}
-#' \item{which_nodes}{vector of nodes to which observations were assigned}
+#' \describe{
+#'  \item{init_prob}{Numerical vector with the initial probability distribution}
+#'  \item{which_nodes}{vector of nodes to which observations were assigned}
 #' }
+#'
 #' @references Ronald P. Barry, Julie McIntyre.  Estimating animal densities and home
 #' range in regions with irregular boundaries and holes:  A lattice-based
 #' alternative to the kernel density estimator.
@@ -33,7 +34,7 @@
 #' <doi:10.1016/j.ecolmodel.2011.02.016>
 #'
 #' @author Ronald P. Barry
-#
+#'
 #' @examples
 #' plot.new()
 #' data(polygon1)
@@ -62,7 +63,7 @@
 addObservations <-
 function(formLatticeOutput, observations){
   #
-  if(class(formLatticeOutput) != "formLatticeOutput"){
+  if(!inherits(formLatticeOutput,"formLatticeOutput")){
        stop("Should be the output from the function formLattice")
     }
   nodes <- formLatticeOutput$nodes

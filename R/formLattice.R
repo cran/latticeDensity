@@ -62,7 +62,7 @@
 #' @export
 formLattice <-
 function(nodeFillingOutput){
-   if(class(nodeFillingOutput)!="nodeFillingOutput"){
+   if(!inherits(nodeFillingOutput,"nodeFillingOutput")){
        stop("Should be the output from the functions 
             nodeFilling or removeHole")
      }

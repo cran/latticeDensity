@@ -76,7 +76,7 @@ function(formLatticeOutput, PointPattern=NULL, M=0.5, k,
          sparse=TRUE)
 {
 #
-  if(class(formLatticeOutput)!="formLatticeOutput"){
+  if(!inherits(formLatticeOutput,"formLatticeOutput")){
        stop("Should be the output from the function formLattice")
     }
   if((M == 0)|(M == 1)){warning("Setting M to zero or one is ill-advised")

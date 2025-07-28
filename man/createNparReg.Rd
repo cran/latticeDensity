@@ -83,7 +83,7 @@ plot(NparRegOut)
 Larry Wasserman.  All of Nonparametric Statistics.  Springer Science + 
 Business Media, Inc. N.Y. 2006.
 
-#' @references Julie McIntyre, Ronald P. Barry (2018)  A Lattice-Based 
+Julie McIntyre, Ronald P. Barry (2018)  A Lattice-Based 
 Smoother for Regions with Irregular Boundaries and Holes.  
 Journal of Computational and Graphical Statistics.  
 <doi:10.1080/10618600.2017.1375935>

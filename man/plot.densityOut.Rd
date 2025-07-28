@@ -11,6 +11,9 @@
 
 \item{\dots}{Graphical parameters for the function contour.default.}
 }
+\value{
+No return value, called for side effects
+}
 \description{
 Plots the boundary, all holes and the locations of 
 all nodes along with the density contour map.

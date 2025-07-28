@@ -14,9 +14,9 @@ editLattice.}
 }
 \value{
 a list with two elements.
-\itemize{
-\item{init_prob}{Numerical vector with the initial probability distribution}
-\item{which_nodes}{vector of nodes to which observations were assigned}
+\describe{
+ \item{init_prob}{Numerical vector with the initial probability distribution}
+ \item{which_nodes}{vector of nodes to which observations were assigned}
 }
 }
 \description{

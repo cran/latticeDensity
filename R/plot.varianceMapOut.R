@@ -11,6 +11,9 @@
 #' @param x An object of type varianceMapOut returned by varianceMap.
 #' @param \dots Other arguments to be passed to functions plot, 
 #' points, lines.
+#' 
+#' @return No return value, called for side effects
+#' 
 #' @author Ronald P. Barry
 #' @examples 
 #' data(nparExample)
@@ -48,7 +51,7 @@
 plot.varianceMapOut <-
   function(x,...){
     #
-    if(class(x) != "varianceMapOut"){
+    if(!inherits(x,"varianceMapOut")){
       stop("This function only plots objects of type varianceMapOut")
     }
     EW_locs <- as.vector(x$EW_locs)

@@ -22,7 +22,7 @@
 #' Larry Wasserman.  All of Nonparametric Statistics.  Springer Science + 
 #' Business Media, Inc. N.Y. 2006.
 #' 
-#' #' @references Julie McIntyre, Ronald P. Barry (2018)  A Lattice-Based 
+#' @references Julie McIntyre, Ronald P. Barry (2018)  A Lattice-Based 
 #' Smoother for Regions with Irregular Boundaries and Holes.  
 #' Journal of Computational and Graphical Statistics.  
 #' <doi:10.1080/10618600.2017.1375935>
@@ -83,7 +83,7 @@ function(formLatticeOutput, Z,
 #  called Z.  Finally, k is the smoothing parameter and is the
 #  number of steps in the random walk.
 #
-  if(class(formLatticeOutput) != "formLatticeOutput"){
+  if(!inherits(formLatticeOutput,"formLatticeOutput")){
        stop("Should be the output from the function formLattice")
     }
   if((M == 0)|(M == 1)){warning("Setting M to zero or one is ill-advised")
